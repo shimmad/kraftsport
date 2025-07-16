@@ -3,20 +3,32 @@ const ChallengeEjModPer = require('../models/persistencia/challengeejercicioModP
 const ChallengeEjEntidad   = require('../entities/ChallengeEj');
 class ChallengeEjController {
 
+    //ya no lo uso en front
       static async getAll(req, res) {
         const relation = await ChallengeEjModPer.obtenerTodos();
         if (!relation || relation.length === 0) {
-            return res.status(404).json({ error: 'No se encontraron ChallengeEjercicio' });
+            return res.status(404).json({ error: 'No se encontraron Challenges' });
         }
         res.status(200).json(relation);
     }
-        static async getAllByChallenge(req, res) {
-        const relation = await ChallengeEjModPer.obtenerPorChallenge(req.params.id);
+
+    // ya no lo uso
+    static async getEjByDia(req, res) {
+        const relation = await ChallengeEjModPer.ObtenerEjporDia(req.params.id, req.params.dia);
         if (!relation || relation.length === 0) {
-            return res.status(404).json({ error: 'No se encontraron ChallengeEjercicio' });
+            return res.status(404).json({ error: 'No se encontraron Ejercicio para el dia ' + req.params.dia });
         }
         res.status(200).json(relation);
         //q ejercicios tiene challenge 1 en dia 3, en que orden
+    }
+    //no lo uso en front
+        static async getAllByChallenge(req, res) {
+        const relation = await ChallengeEjModPer.obtenerPorChallenge(req.params.id);
+        if (!relation || relation.length === 0) {
+            return res.status(404).json({ error: 'No se encontraron Challenges con el id ' + req.params.id  });
+        }
+        res.status(200).json(relation);
+        
     }
    
     static async create(req, res) {
@@ -52,6 +64,17 @@ class ChallengeEjController {
             res.status(500).json({ error: 'Error al eliminar el ChallengeEjercicio' });
         }                       
     }
+     static async getDiasConVideos(req, res) {
+        try {
+            const challenge_id = Number(req.params.id);
+            const diasConVideos = await ChallengeEjModPer.obtenerDiasConVideosPorChallenge(challenge_id);
+            res.status(200).json(diasConVideos);
+        } catch (error) {
+            console.error(error);
+            res.status(500).json({ error: 'Error al obtener los días y videos del challenge' });
+        }
+    }
+
 
 
 }

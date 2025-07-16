@@ -12,6 +12,45 @@ class SeguimientoModPer {
         });
         return seguimientos.map(s => new SeguimientoEntidad(s.id, s.usuario_id, s.challenge_id, s.dia, s.completado));
     }
+    static async obtenerPorChallengeYUsuario(id_challenge, id_usuario) {
+            const seguimientos = await db.Seguimiento.findAll({
+                where: {challenge_id: id_challenge, usuario_id: id_usuario}
+            });
+            return seguimientos.map(s => new SeguimientoEntidad(s.id, s.usuario_id, s.challenge_id, s.dia, s.completado));
+        }
+    static async obtenerPorChallengeYUsuarioYDia(id_challenge, id_usuario,dia) {
+            const seguimientos = await db.Seguimiento.findAll({
+                where: {challenge_id: id_challenge, usuario_id: id_usuario, dia: dia}
+            });
+            return seguimientos.map(s => new SeguimientoEntidad(s.id, s.usuario_id, s.challenge_id, s.dia, s.completado));
+      }
+static async descompletarDia(id_challenge, id_usuario, dia) {
+    const seguimiento = await db.Seguimiento.findOne({
+        where: {challenge_id: id_challenge, usuario_id: id_usuario, dia: dia}
+    });
+    if(seguimiento) {
+        seguimiento.completado = false;
+        await seguimiento.save();
+    }
+    return seguimiento;
+}
+static async completarDia(id_challenge, id_usuario, dia) {
+    let seguimiento = await db.Seguimiento.findOne({
+        where: {challenge_id: id_challenge, usuario_id: id_usuario, dia: dia}
+    });
+    if(!seguimiento) {
+        seguimiento = await db.Seguimiento.create({
+            challenge_id: id_challenge,
+            usuario_id: id_usuario,
+            dia: dia,
+            completado: true
+        });
+    } else {
+        seguimiento.completado = true;
+        await seguimiento.save();
+    }
+    return seguimiento;
+}
     static async crear (seguimiento) {
         const nuevoSeguimiento = await db.Seguimiento.create({
             usuario_id: seguimiento.usuario_id,

@@ -32,5 +32,6 @@ router.use('/compras', require('./compraRoutes'));
 router.use('/challenges', require('./challengeRoutes'));
 router.use('/challengeEj', require('./challengeEjRoutes'));
 router.use('/seguimientos', require('./seguimientoRoutes'));
+router.use('/auth', require('./authRoutes'));
 
 module.exports = router;

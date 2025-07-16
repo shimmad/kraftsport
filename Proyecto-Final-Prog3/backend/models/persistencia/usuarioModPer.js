@@ -19,6 +19,11 @@ class UsuarioModPer {
   return null;
 } */
     }
+    static async obtenerPorEmail(email) {
+        if (!email) { return null; }
+        const usuario = await db.Usuario.findOne({ where: { email: email } });
+        return usuario ? new UsuarioEntidad(usuario.id, usuario.nombre, usuario.email, usuario.password, usuario.rol): null;
+    }
 
     static async crear(usuario) {
         const nuevoUsuario = await db.Usuario.create({

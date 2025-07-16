@@ -1,0 +1,41 @@
+
+
+
+.perfil-container {
+  
+    padding: 30px;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.perfil-title {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+
+.perfil-rol {
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+
+.logout-button {
+  background: linear-gradient(to right, #0077b6, #00b4d8); /* azul oscuro a celeste */
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.logout-button:hover {
+  background: linear-gradient(to right, #023e8a, #48cae4);
+}
+
+

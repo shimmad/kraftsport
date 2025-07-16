@@ -8,13 +8,13 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      Ejercicio.belongsToMany(models.Challenge, {through: 'models.Challengeejercicio', foreignKey: 'ejercicio_id'});
+      Ejercicio.belongsToMany(models.Challenge, {through: 'ChallengeEjercicio', foreignKey: 'ejercicio_id'});
     }
   }
   //que pasa si dsps queiro agregar mas campos? como duracion
   Ejercicio.init({
     nombre: DataTypes.STRING,
-    tipo: DataTypes.STRING,
+    tipo: DataTypes.STRING, //Warmup, Fullbody, LowerBody, UpperBody, Flexibility
     video_url: DataTypes.STRING,
     descripcion: DataTypes.TEXT
   }, {

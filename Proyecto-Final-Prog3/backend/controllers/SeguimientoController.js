@@ -19,6 +19,47 @@ class SeguimientoController {
         }
         res.status(200).json(seguimientos);
     }
+    static async getUsuarioEnChallenge  (req, res) {
+        const challengeID = Number(req.params.challenge_id);
+        const usuario_id = Number(req.params.usuario_id);
+        try {
+            const seguimientos = await SeguimientoModPer.obtenerPorChallengeYUsuario(challengeID, usuario_id);
+            res.status(200).json(seguimientos);
+           
+        } catch (error) {
+            res.status(500).json({ error: 'Error al obtener los seguimientos del usuario en el challenge' });
+        }
+        
+    }
+    static async getDiadeChallengeEnUsuario (req, res) {
+        const challengeID = Number(req.params.challenge_id);
+        const usuario_id = Number(req.params.usuario_id);
+        const dia = Number(req.params.dia);
+       try {
+        const seguimientos = await SeguimientoModPer.obtenerPorChallengeYUsuarioYDia(challengeID, usuario_id, dia);
+        res.status(200).json(seguimientos);
+       } catch (error) {
+        res.status(500).json({ error: 'Error al obtener los seguimientos del usuario en el challenge para el dia' });
+       }
+    }
+    static async descompletarDia(req, res) {
+        const {challenge_id, usuario_id, dia} = req.params;
+        try {
+            const descompletado = await SeguimientoModPer.descompletarDia(challenge_id, usuario_id, dia);
+            res.status(200).json(descompletado);
+        } catch (error) {
+            res.status(500).json({ error: 'Error al descompletar el día' });
+        }
+    }
+    static async completarDia(req, res) {
+        const {challenge_id, usuario_id, dia} = req.params;
+        try {
+            const completado = await SeguimientoModPer.completarDia(challenge_id, usuario_id, dia);
+            res.status(200).json(completado);
+        } catch (error) {
+            res.status(500).json({ error: 'Error al completar el día' });
+        }
+    }
     static async create(req, res) {
         try{
         const nuevoSeguimiento = new SeguimientoEntidad(null, req.body.usuario_id, req.body.challenge_id, req.body.dia, req.body.completado);

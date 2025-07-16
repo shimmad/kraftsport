@@ -19,7 +19,7 @@ module.exports = {
    const [usuarios] = await queryInterface.sequelize.query(`SELECT id FROM "Usuarios" WHERE email = 'jime@example.com'`);
    const usuarioId = usuarios[0].id
 
-   await queryInterface.bulkInsert('Compras', [
+   await queryInterface.bulkInsert('Compra', [
     {
       usuario_id: usuarioId,
       producto_id: productoId,
@@ -48,6 +48,6 @@ module.exports = {
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
-    await queryInterface.bulkDelete('Compras', null, {});
+    await queryInterface.bulkDelete('Compra', null, {});
   }
 };

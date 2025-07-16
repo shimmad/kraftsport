@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     //relacion uni a muchos: usuario tiene muchos seguimientos
      Usuario.hasMany(models.Seguimiento, { foreignKey: 'usuario_id' });
      //relacion muchos a muchos usuario y prod a traves de compra
-     Usuario.belongsToMany(models.Producto, {through: 'models.Compra', foreignKey: 'usuario_id', otherKey: 'producto_id'});
+     Usuario.belongsToMany(models.Producto, {through: 'Compra', foreignKey: 'usuario_id', otherKey: 'producto_id'});
     }
   }
   Usuario.init({

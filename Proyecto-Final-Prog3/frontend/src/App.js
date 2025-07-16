@@ -6,6 +6,7 @@ import Challenge from './pages/Challenges';
 import Ejercicio from './pages/Ejercicios';
 import Tienda from './pages/Tienda';
 import Perfil from './pages/Perfil';
+import ChallengeEj from './pages/ChallengesEj';
 import Layout from './components/layout/layout';
 
 
@@ -19,6 +20,7 @@ function App() {
         <Route path="/ejercicio" element={<Ejercicio />} />
         <Route path="/tienda" element={<Tienda />} />
         <Route path="/perfil" element={<Perfil />} />
+        <Route path="/challengesEj/:id" element={<ChallengeEj />} />
       </Routes>
       </Layout>
       

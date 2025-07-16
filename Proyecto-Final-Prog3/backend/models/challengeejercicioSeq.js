@@ -14,6 +14,8 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   ChallengeEjercicio.init({
+    id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
+    
     challenge_id: DataTypes.INTEGER,
     ejercicio_id: DataTypes.INTEGER,
     dia: DataTypes.INTEGER,
@@ -23,6 +25,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'ChallengeEjercicio',
+    tableName: 'ChallengeEjercicio'
   });
   return ChallengeEjercicio;
 };

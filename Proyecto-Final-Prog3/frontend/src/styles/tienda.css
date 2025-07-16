@@ -1,0 +1,78 @@
+/* Contenedor general */
+.tienda-container {
+  padding: 2rem;
+  background: linear-gradient(to bottom, #e6f2ff, #ffffff); /* celeste muy claro a blanco */
+  color: #003366; /* azul oscuro */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Título principal */
+.tienda-container h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+  color: #002244;
+}
+
+/* Párrafo de contacto */
+.tienda-container p {
+  text-align: center;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+
+.tienda {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  padding: 0 1rem;
+}
+
+
+.tienda-card {
+  background-color: #ffffff;
+  border-radius: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 51, 102, 0.15);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.tienda-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0, 51, 102, 0.25);
+}
+
+.tienda-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+
+.tienda-nombre {
+  font-size: 1.3rem;
+  color: #003366;
+  margin: 0.5rem 0;
+  text-align: center;
+}
+
+
+.tienda-descripcion {
+  font-size: 0.95rem;
+  color: #444;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+
+.tienda-precio {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #005599;
+}

@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       Challenge.hasMany(models.Seguimiento, { foreignKey: 'challenge_id' });
-      Challenge.belongsToMany(models.Ejercicio, {through: 'models.Challengeejercicio', foreignKey: 'challenge_id'});
+      Challenge.belongsToMany(models.Ejercicio, {through: 'ChallengeEjercicio', foreignKey: 'challenge_id'});
     }
   }
   Challenge.init({

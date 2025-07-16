@@ -1,4 +1,4 @@
-class Challengeejercicio {
+class ChallengeEjercicio {
     constructor(id,challenge_id, ejercicio_id, dia, posicion) {
         this.id = id;
         this.challenge_id = challenge_id;
@@ -8,4 +8,4 @@ class Challengeejercicio {
     }
 }
 
-module.exports = Challengeejercicio
+module.exports = ChallengeEjercicio

@@ -1,9 +1,9 @@
 const JOI= require('joi');
 
 const ejercicioSchema= JOI.object({
-    nombre: JOI.string().required(),
+    nombre: JOI.string().optional().allow(''),
     descripcion: JOI.string().optional().allow(''),
-    video_url: JOI.string().optional().allow(''),
+    video_url: JOI.string().required(),
     tipo: JOI.string().required(),
 });
 

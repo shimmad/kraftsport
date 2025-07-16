@@ -7,14 +7,16 @@ class challengeEjModPer {
         const challengeEj = await db.ChallengeEjercicio.findAll();
         return challengeEj.map(challengeEj => new ChallengeEjEntidad(challengeEj.id, challengeEj.challenge_id, challengeEj.ejercicio_id, challengeEj.dia, challengeEj.posicion));
     }
-    /**
-     * Devuelve todos los ChallengeEjercicio asociados a un Challenge
-     * @param {number} id - El id del Challenge
-     * @returns {Promise<ChallengeEjEntidad[]>} - Un array de ChallengeEjercicio
-     */
-    static async obtenerPorChallenge(id) {
+    static async ObtenerEjporDia(id, dia) {
         const challengeEj = await db.ChallengeEjercicio.findAll({
-            where: {challenge_id: id}
+            where: {challenge_id: id, dia: dia}
+        });
+        return challengeEj.map(challengeEj => new ChallengeEjEntidad(challengeEj.id, challengeEj.challenge_id, challengeEj.ejercicio_id, challengeEj.dia, challengeEj.posicion));
+        
+    }
+    static async obtenerPorChallenge(challenge_id) {
+        const challengeEj = await db.ChallengeEjercicio.findAll({
+            where: {challenge_id: challenge_id}
         });
         return challengeEj.map(challengeEj => new ChallengeEjEntidad(challengeEj.id, challengeEj.challenge_id, challengeEj.ejercicio_id, challengeEj.dia, challengeEj.posicion));
     }
@@ -50,8 +52,44 @@ class challengeEjModPer {
         });
         return filasEliminadas === 1;
     }
+    static async obtenerDiasConVideosPorChallenge(challenge_id) {
+    // Trae todos los ChallengeEj para ese challenge
+    const relations = await db.ChallengeEjercicio.findAll({
+        where: { challenge_id },
+        include: [
+            {
+                model: db.Ejercicio,
+                attributes: ['id', 'nombre', 'video_url', 'descripcion', 'tipo'] // agrega aquí los campos que quieras
+            }
+        ],
+        order: [
+            ['dia', 'ASC'],
+            ['posicion', 'ASC']
+        ]
+    });
 
+    // Agrupar por día
+    const diasMap = {};
+    relations.forEach(rel => {
+        if (!diasMap[rel.dia]) diasMap[rel.dia] = [];
+        diasMap[rel.dia].push({
+            id: rel.Ejercicio.id,
+            nombre: rel.Ejercicio.nombre,
+            video_url: rel.Ejercicio.video_url,
+            descripcion: rel.Ejercicio.descripcion,
+            tipo: rel.Ejercicio.tipo,
+            posicion: rel.posicion
+        });
+    });
 
+    // Convertir a array [{ dia, videos }]
+    return Object.entries(diasMap).map(([dia, videos]) => ({
+        dia: Number(dia),
+        videos
+    }));
 }
+}
+
+
 
 module.exports = challengeEjModPer

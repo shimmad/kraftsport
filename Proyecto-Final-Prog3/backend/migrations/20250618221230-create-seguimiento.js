@@ -2,50 +2,64 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
+    // 1) Crear la tabla
     await queryInterface.createTable('Seguimientos', {
       id: {
-        allowNull: false,
-        autoIncrement: true,
+        type: Sequelize.INTEGER,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        autoIncrement: true,
+        allowNull: false,
       },
       usuario_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        references:{
+        references: {
           model: 'Usuarios',
-          key: 'id'
+          key: 'id',
         },
         onUpdate: 'CASCADE',
-        onDelete: 'CASCADE'
+        onDelete: 'CASCADE',
       },
       challenge_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        references:{
+        references: {
           model: 'Challenges',
-          key: 'id'
+          key: 'id',
         },
         onUpdate: 'CASCADE',
-        onDelete: 'CASCADE'
+        onDelete: 'CASCADE',
       },
       dia: {
-        type: Sequelize.DATE
+        type: Sequelize.INTEGER,
+        allowNull: false,
       },
       completado: {
-        type: Sequelize.BOOLEAN
+        type: Sequelize.BOOLEAN,
+        allowNull: false,
+        defaultValue: false,
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.fn('NOW'),
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
-      }
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.fn('NOW'),
+      },
+    });
+
+    // 2) Agregar la restricción de unicidad (un seguimiento por usuario/desafío/día)
+    await queryInterface.addConstraint('Seguimientos', {
+      fields: ['usuario_id', 'challenge_id', 'dia'],
+      type: 'unique',
+      name: 'unico_seguimiento_por_usuario_challenge_dia',
     });
   },
+
   async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('Seguimientos');
-  }
+  },
 };

@@ -2,7 +2,7 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('ChallengeEjercicios', {
+    await queryInterface.createTable('ChallengeEjercicio', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -30,6 +30,14 @@ module.exports = {
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE'
       },
+      dia: {
+        type: Sequelize.INTEGER,
+        allowNull: false
+      },
+      posicion: {
+        type: Sequelize.INTEGER,
+        allowNull: false
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
@@ -41,6 +49,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('ChallengeEjercicios');
+    await queryInterface.dropTable('ChallengeEjercicio');
   }
 };

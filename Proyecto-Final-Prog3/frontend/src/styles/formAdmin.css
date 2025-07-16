@@ -1,0 +1,73 @@
+/* Estilo base para todos los formularios del panel */
+.form-admin {
+     padding: 30px;
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  flex: 1 1 30%; 
+  min-width: 280px;
+}
+
+/* Títulos de los formularios */
+.form-admin-title {
+  font-size: 22px;
+  font-weight: 600;
+  color: #023e8a;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+/* Inputs y textareas */
+.form-admin input,
+.form-admin textarea,
+.form-admin select {
+  font-size: 16px;
+  padding: 10px 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 100%;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-admin textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.form-admin input:focus,
+.form-admin textarea:focus,
+.form-admin select:focus {
+  border-color: #00b4d8;
+  box-shadow: 0 0 0 2px rgba(0, 180, 216, 0.2);
+  outline: none;
+}
+
+/* Botón de enviar */
+.form-admin-button {
+  background: linear-gradient(to right, #0077b6, #00b4d8); /* azul oscuro a celeste */
+  color: white;
+  font-size: 16px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.form-admin-button:hover {
+  background: linear-gradient(to right, #023e8a, #48cae4);
+}
+
+/* Opcional: animación al mostrar formularios */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.form-admin {
+  animation: fadeIn 0.3s ease-out;
+}

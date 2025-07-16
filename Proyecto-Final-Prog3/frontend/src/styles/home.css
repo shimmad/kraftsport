@@ -46,26 +46,24 @@
     margin-bottom: 0.5rem;
     
 }
+.home-vision{
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 2rem;
+
+}
 .home-cards {
     display: flex;
     gap: 1.5rem;
     justify-content: center;
     margin-bottom:2rem;
 }
-.challenge {
-    background-image: url('../assets/img/challenge.jpg');
-    background-size: cover;
-    background-position: center;
-  
-    color: #fff;
-    position: relative;
-    z-index: 1;
-}
+
     
 .h-card {
     flex:1;
     min-width: 220px;
-    background: #fff;
+    min-height: 240px;
     border: 2px solid #b2ebf2;
     border-radius: 8px;
     padding: 2rem;
@@ -73,23 +71,37 @@
     text-decoration: none;
     transition: box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out;
     margin-bottom: 2rem;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+
 }   
 
 .h-card:hover{
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-color: #00838f;
-    background:#e0f7fa ;
+    transform: scale(1.05);
+    transition: transform 0.3s ease-in-out;
 
 }
 .h-card h3{
-    color: #00838f;
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
+ 
+    font-size: 2rem;
+    font-weight: bold;
+    color: #110f94;
+   
+    
+    padding: 5px;
+    display: inline-block;
+    text-align: center;
+   
+
 }
-.h-card p{
-    color: #333;
-    font-size: 1rem;
+.enfasis{
+    color: rgb(245, 159, 30);
 }
+
    
 /* diseño responsive*/
 @media (max-width: 768px) {

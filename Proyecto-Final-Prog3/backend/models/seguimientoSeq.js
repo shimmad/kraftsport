@@ -19,11 +19,13 @@ module.exports = (sequelize, DataTypes) => {
   Seguimiento.init({
     usuario_id: DataTypes.INTEGER,
     challenge_id: DataTypes.INTEGER,
-    dia: DataTypes.DATE,
+    dia: DataTypes.INTEGER,
     completado: DataTypes.BOOLEAN
   }, {
     sequelize,
     modelName: 'Seguimiento',
+    indexes: [{unique: true, fields: ['challenge_id', 'usuario_id', 'dia']}]
+    //necesito que para esata combinacion de atribuutos, solo exista un seguimiento (completaste el dia completo, no ejercicio individual)
   });
   return Seguimiento;
 };

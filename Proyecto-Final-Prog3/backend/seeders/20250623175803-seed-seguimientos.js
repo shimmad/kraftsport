@@ -23,29 +23,13 @@ module.exports = {
     {
       usuario_id: usuarioId,
       challenge_id: challengeId,
-      dia: new Date('2025-06-01'),
+      dia: 1,
       completado: true,
       createdAt: new Date(),
       updatedAt: new Date()
     },
-    {
-      usuario_id: usuarioId,
-      challenge_id: challengeId,
-      dia: new Date('2025-06-02'),
-      completado: true,
-      createdAt: new Date(),
-      updatedAt: new Date()
-    },
-    {
-      usuario_id: usuarioId,
-      challenge_id: challengeId,
-      dia: new Date('2025-06-03'),
-      completado: true,
-      createdAt: new Date(),
-      updatedAt: new Date()
-    }
-   ]
-   )
+    
+   ], {});
   },
 
   async down (queryInterface, Sequelize) {

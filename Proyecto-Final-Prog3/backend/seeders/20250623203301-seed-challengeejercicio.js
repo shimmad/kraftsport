@@ -19,12 +19,12 @@ module.exports = {
    const challengeId = challenge[0].id;
    const [ejercicio] = await queryInterface.sequelize.query(`SELECT * FROM "Ejercicios" WHERE "nombre" = 'DS espalda' ;`);
    const ejercicioId = ejercicio[0].id;
-   await queryInterface.bulkInsert('ChallengeEjercicios', [
+   await queryInterface.bulkInsert('ChallengeEjercicio', [
     {
       challenge_id: challengeId,
       ejercicio_id: ejercicioId,
       posicion: 1,
-      dia: '2025-06-20',
+      dia: 1,
       createdAt: new Date(),
       updatedAt: new Date()
     },
@@ -32,7 +32,7 @@ module.exports = {
       challenge_id: challengeId,
       ejercicio_id: ejercicioId,
       posicion: 2,
-      dia: '2025-06-21',
+      dia: 1,
       createdAt: new Date(),
       updatedAt: new Date()
     },
@@ -40,7 +40,7 @@ module.exports = {
       challenge_id: challengeId,
       ejercicio_id: ejercicioId,
       posicion: 3,
-      dia: '2025-06-22',
+      dia: 1,
       createdAt: new Date(),
       updatedAt: new Date()
     }
@@ -55,6 +55,6 @@ module.exports = {
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
-    await queryInterface.bulkDelete('ChallengeEjercicios', null, {});
+    await queryInterface.bulkDelete('ChallengeEjercicio', null, {});
   }
 };
