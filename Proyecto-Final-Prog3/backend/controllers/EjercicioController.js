@@ -26,6 +26,7 @@ class EjercicioController {
             res.status(201).json(ejercicio);
         } catch (error) {
             res.status(500).json({ error: 'Error al crear el ejercicio' });
+            console.log(error);
         }
     }
     static async update(req, res) { //necesita JOI para ver que los datos sean correctgos
