@@ -15,7 +15,7 @@ module.exports = {
 
       },
       tipo: {
-        type: Sequelize.ENUM('UpperBody','LowerBody','FullBody','Flexibility'),
+        type: Sequelize.ENUM('upperbody','lowerbody','fullbody','flexibility','warmup'),
         allowNull: false
 
       },

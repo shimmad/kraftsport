@@ -1,3 +1,7 @@
+/*
+NO USO
+
+
 const Joi = require('joi');
 
 
@@ -17,3 +21,4 @@ module.exports = (req, res, next) => {
     }
     next();
 };
+*/

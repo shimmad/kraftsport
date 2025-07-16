@@ -29,7 +29,7 @@ db.Sequelize = Sequelize;
 //importo cada modelo y lo agrego al objeto db
 db.Usuario = require('./usuarioSeq')(sequelize, DataTypes);
 db.Producto = require('./productoSeq')(sequelize, DataTypes);
-db.Compra = require('./compraSeq')(sequelize, DataTypes);
+/*db.Compra = require('./compraSeq')(sequelize, DataTypes);*/
 db.Challenge = require('./challengeSeq')(sequelize, DataTypes);
 db.Ejercicio = require('./ejercicioSeq')(sequelize, DataTypes);
 db.Seguimiento = require('./seguimientoSeq')(sequelize, DataTypes);

@@ -28,7 +28,7 @@ router.get('/test', (req, res) => {
 router.use('/usuarios', require('./usuarioRoutes'));
 router.use('/productos', require('./productoRoutes'));
 router.use('/ejercicios', require('./ejercicioRoutes'));
-router.use('/compras', require('./compraRoutes'));
+/*router.use('/compras', require('./compraRoutes'));*/
 router.use('/challenges', require('./challengeRoutes'));
 router.use('/challengeEj', require('./challengeEjRoutes'));
 router.use('/seguimientos', require('./seguimientoRoutes'));

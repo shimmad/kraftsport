@@ -1,3 +1,7 @@
+/*
+no uso por ahora
+
+
 const express = require('express');
 const router = express.Router();
 const CompraController = require('../controllers/CompraController');
@@ -12,3 +16,5 @@ router.put('/:id', compraValido, catchAsync(CompraController.update));
 router.delete('/:id', catchAsync(CompraController.delete));
 
 module.exports = router;
+
+*/

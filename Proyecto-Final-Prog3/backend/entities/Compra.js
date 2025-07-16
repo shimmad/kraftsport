@@ -1,3 +1,7 @@
+
+/*
+NO USO
+
 class Compra {
     constructor(id, usuario_id, producto_id, fecha, cantidad, precio_total) {
         this.id = id;
@@ -10,3 +14,5 @@ class Compra {
     }
 }    
 module.exports = Compra;
+
+*/

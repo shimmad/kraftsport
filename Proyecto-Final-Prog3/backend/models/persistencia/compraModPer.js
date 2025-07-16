@@ -1,3 +1,8 @@
+/* 
+
+NO USO POR AHORA 
+
+
 const db = require ('..');
 const CompraEntidad = require ('../../entities/Compra');
 
@@ -59,3 +64,5 @@ class CompraModPer {
 }
 
 module.exports = CompraModPer;
+
+*/

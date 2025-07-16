@@ -1,5 +1,143 @@
 # 🚀 Sistema Web Full-Stack con Docker
 
+
+-- Proyecto final: sistema de ejercicios para entrenar en casa--
+
+Aplicación web para entrenamiento funcional que permite a los usuarios seguir desafíos mensuales (challenges), ver videos de ejercicios clasificados por tipo y ver productos de entrenamiento.
+
+Los usuarios pueden registrarse y marcar los días que completaron un challenge. (funcion a agregar: que el perfil del usuario renderice en seguimientos ya creados, por ahora solo saluda)
+Los administradores pueden crear desafíos, ejercicios, productos.
+(faltan funciones como editar y eliminar en el FRONT.)
+
+funciones:
+/home --> descripcion gral, 
+/challenges --> ver desafios
+/chalengeEj --> accedes clickeando un desafio para ver su detalle, y si sos usuario podes marcar dia completado
+/ejercicios --> galeria de video por tipo
+/tienda --> ver productos
+/perfil--> login de usaurio. segun rol (usuario o admin) renderiza de una forma espcifica 
+
+-- entidades,
+
+usuario: id, nombre, mail, contraseña, rol (admin,user)--> tiene muchos challenges, un admin puede gestionar todo
+
+challenge: id, nombre, descripcion, fecha_inicio, fecha_fin --> tiene muchos ejercicios
+
+Ejercicio: id, nombre, tipo (wp,ub,lb,fb,flex), video_url, descripcion --> un ejerrcicio puede estar en varios challenges
+
+Seguimiento: id, usuario_id, challenge_id, dia, completado(bool) --> un usuario tien muchos seguimientos
+
+Producto: id, nombre, descripcion, precio, img --> solo muestro productos.
+
+Challengeejercicio: challenge id ejercicio id, dia, posicion --> seria el detalle de cada challenge
+
+compra: prod id, usuario id, fecha, cant, precio total (sin uso)
+
+# Proyecto Backend y Frontend de Tienda & Challenges
+
+## Descripción
+
+El backend usa el modelo MVC. tengo entidades js, controladores, que hablan con los modelos de persistencia. Uso middelware de validacion para la creacion o actualizacion de objetos. en los modelos de sequelize defino las relaciones de las tablas, de como se escriben. Uso migraciones para crear tablas enla base postgeree. uso seeders para datos de prueba.
+
+en el frontend hay componentes factorizados para las plantillas de paginas, servicios q usan fetch para interactar con el backend, y diseño.
+son 5 paginas principales mas 1 de detalle de deesafios, y 1 que renderiza segun usuario. uso cards y botones interactivos. uso formularios.
+tiene logica de inicio de sesion con JWT:
+usuarios creados con seeders:
+jime@example.com --> admin
+jime123
+
+Pablo@example.com -->user (puede tener seguimientos)
+pablo123
+
+sigo trabajando en su correcto funcionamiento, y en cargar el minimo de datos necesarios para la visualizcion de las capacidades y funciones del programa. quedan algunas funciones a mejorar e implementar a futuro (todas las opeaciones crud) y mejorar el estilo visual para mejores transiciones.
+---
+
+# Endpoints principales
+### Auth
+
+- **POST** `/api/auth/login`
+
+### Productos (Tienda)
+
+- **GET** `/api/productos`  
+  Lista todos los productos.
+
+- **POST** `/api/productos`  
+  Crea un nuevo producto (solo admin).
+
+### Ejercicios
+
+- **GET** `/api/ejercicios`  
+
+- **POST** `/api/ejercicios`  
+  Crea un nuevo ejercicio (solo admin).
+
+### Challenges
+
+- **GET** `/api/challenges/:id`  
+  Trae info de un challenge específico.
+
+- **GET** `/api/challenges/:id/dias`  
+  Trae los días y videos de un challenge.
+
+- **GET** `/api/challenges/:id/seguimiento/:userId`  
+  Trae el seguimiento (progreso) de un usuario.
+
+- **POST** `/api/challenges/:id/completar`  
+  Marca un día como completo.
+
+- **POST** `/api/challenges/:id/descompletar`  
+  Desmarca un día como completo.
+
+
+
+
+## TODO
+
+.
+- Agregar tests automáticos.
+- Mejorar manejo de errores.
+- Completar el CRUD de productos y ejercicios para admin.
+- Mejorar documentación interna de las rutas.
+- Deberia mejorar el uso de carpetas que tuve
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## 📋 Componentes Principales
 
 ### 🎯 Arquitectura General

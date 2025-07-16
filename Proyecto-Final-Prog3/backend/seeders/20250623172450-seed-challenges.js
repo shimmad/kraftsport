@@ -14,7 +14,7 @@ module.exports = {
     */
    await queryInterface.bulkInsert('Challenges', [
     {
-      nombre: 'Challenge JUNIO',
+      nombre: 'JUNIO 2025',
       descripcion: 'nivel intermedio ',
       fecha_inicio: new Date('2025-06-01'),
       fecha_fin: new Date('2025-06-30'),
@@ -22,7 +22,7 @@ module.exports = {
       updatedAt: new Date()
     },
     {
-      nombre: 'Challenge MAYO',
+      nombre: 'MAYO 2025',
       descripcion: 'nivel intermedio ',
       fecha_inicio: new Date('2025-05-01'),
       fecha_fin: new Date('2025-05-30'),

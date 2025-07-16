@@ -15,9 +15,9 @@ module.exports = {
      * }], {});
     */
    //voy a tener q implementar busqueda dinamica de challenge por id?
-   const [challenge] = await queryInterface.sequelize.query(`SELECT * FROM "Challenges" WHERE "nombre" = 'Challenge JUNIO' ;`);
+   const [challenge] = await queryInterface.sequelize.query(`SELECT * FROM "Challenges" WHERE "nombre" = 'JUNIO 2025' ;`);
    const challengeId = challenge[0].id;
-   const [ejercicio] = await queryInterface.sequelize.query(`SELECT * FROM "Ejercicios" WHERE "nombre" = 'DS espalda' ;`);
+   const [ejercicio] = await queryInterface.sequelize.query(`SELECT * FROM "Ejercicios" WHERE "nombre" = 'mejor postura' ;`);
    const ejercicioId = ejercicio[0].id;
    await queryInterface.bulkInsert('ChallengeEjercicio', [
     {
@@ -31,16 +31,8 @@ module.exports = {
     {
       challenge_id: challengeId,
       ejercicio_id: ejercicioId,
-      posicion: 2,
-      dia: 1,
-      createdAt: new Date(),
-      updatedAt: new Date()
-    },
-    {
-      challenge_id: challengeId,
-      ejercicio_id: ejercicioId,
-      posicion: 3,
-      dia: 1,
+      posicion: 1,
+      dia: 2,
       createdAt: new Date(),
       updatedAt: new Date()
     }

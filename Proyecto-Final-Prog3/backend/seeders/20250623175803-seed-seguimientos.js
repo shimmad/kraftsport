@@ -16,7 +16,7 @@ module.exports = {
    const [usuarios] = await queryInterface.sequelize.query(`SELECT id FROM "Usuarios" WHERE email = 'jime@example.com'`);
    const usuarioId = usuarios[0].id
 
-   const [challenges]= await queryInterface.sequelize.query(`SELECT id FROM "Challenges" WHERE nombre = 'Challenge JUNIO'`);
+   const [challenges]= await queryInterface.sequelize.query(`SELECT id FROM "Challenges" WHERE nombre = 'JUNIO 2025'`);
    const challengeId = challenges[0].id
 
    await queryInterface.bulkInsert('Seguimientos', [

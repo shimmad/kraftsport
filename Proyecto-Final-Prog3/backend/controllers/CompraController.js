@@ -1,3 +1,6 @@
+/*
+NO USO POR AHORA
+
 const CompraModPer = require('../models/persistencia/compraModPer');
 const productoModPer = require('../models/persistencia/productoModPer');
 const CompraEntidad = require('../entities/Compra');
@@ -85,3 +88,5 @@ class CompraController {
 }
 
 module.exports = CompraController;
+
+*/

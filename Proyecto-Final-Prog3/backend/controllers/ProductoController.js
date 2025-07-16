@@ -22,6 +22,7 @@ class ProductoController {
             const producto = await ProductoModPer.crear(nuevoProducto);
             res.status(201).json(producto);
         } catch (error) {
+            console.log(error);
             res.status(500).json({ error: 'Error al crear el producto' });
         }
     }

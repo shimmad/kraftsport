@@ -1,3 +1,6 @@
+/*
+NO USO POR AHORA
+
 'use strict';
 const {Model} = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
@@ -6,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
-     */
+     
     static associate(models) {
       Compra.belongsTo(models.Usuario, { foreignKey: 'usuario_id' });
       Compra.belongsTo(models.Producto, { foreignKey: 'producto_id' });
@@ -27,3 +30,5 @@ module.exports = (sequelize, DataTypes) => {
   });
   return Compra;
 };
+
+*/

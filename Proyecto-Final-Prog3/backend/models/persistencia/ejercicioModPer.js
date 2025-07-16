@@ -16,7 +16,7 @@ class EjercicioModPer {
     static async crear(ejercicio) {
         const nuevoEjercicio = await db.Ejercicio.create({
             nombre: ejercicio.nombre,
-            tipo: ejercicio.tipo,
+            tipo: ejercicio.tipo.toLowerCase(),
             video_url: ejercicio.video_url,
             descripcion: ejercicio.descripcion
         });
